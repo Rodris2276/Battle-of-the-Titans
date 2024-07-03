@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Player 2
+  - Ground
+  - Platforms
+  - SpawnPoint
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Player 2
+  - Platforms
+  - Decorations
+  - Player 1
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 3637627813
+    locked: 0
+  - name: Background1
+    uniqueID: 2859075817
+    locked: 0
+  - name: Background2
+    uniqueID: 347570469
+    locked: 0
+  - name: Background3
+    uniqueID: 1309461493
+    locked: 0
+  - name: Background4
+    uniqueID: 2446303231
+    locked: 0
+  - name: Background5
+    uniqueID: 1726515265
+    locked: 0
+  - name: Background6
+    uniqueID: 212085421
+    locked: 0
+  - name: Background7
+    uniqueID: 3309086409
+    locked: 0
+  - name: Background8
+    uniqueID: 3877654973
+    locked: 0
+  - name: Background9
+    uniqueID: 1558652319
+    locked: 0
+  - name: Background10
+    uniqueID: 3975793723
+    locked: 0
+  - name: Background11
+    uniqueID: 1768209793
+    locked: 0
+  - name: Decorations
+    uniqueID: 3596381215
+    locked: 0
+  - name: Player 1
+    uniqueID: 169707089
+    locked: 0
+  - name: Ground
+    uniqueID: 1346904449
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Platforms
+    uniqueID: 2982580845
+    locked: 0
