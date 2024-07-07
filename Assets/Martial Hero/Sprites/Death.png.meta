@@ -21,7 +21,7 @@ TextureImporter:
       213: -5789737788129074030
     second: Death_5
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -157,10 +157,10 @@ TextureImporter:
       name: Death_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 27
         y: 78
-        width: 200
-        height: 122
+        width: 140
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: Death_1
       rect:
         serializedVersion: 2
-        x: 200
+        x: 227
         y: 78
-        width: 200
-        height: 122
+        width: 140
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,10 +199,10 @@ TextureImporter:
       name: Death_2
       rect:
         serializedVersion: 2
-        x: 400
+        x: 427
         y: 78
-        width: 200
-        height: 122
+        width: 140
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,10 +220,10 @@ TextureImporter:
       name: Death_3
       rect:
         serializedVersion: 2
-        x: 600
+        x: 627
         y: 78
-        width: 200
-        height: 122
+        width: 140
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: Death_4
       rect:
         serializedVersion: 2
-        x: 800
+        x: 827
         y: 78
-        width: 200
-        height: 122
+        width: 140
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,10 +262,10 @@ TextureImporter:
       name: Death_5
       rect:
         serializedVersion: 2
-        x: 1000
+        x: 1027
         y: 78
-        width: 200
-        height: 122
+        width: 140
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

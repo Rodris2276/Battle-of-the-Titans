@@ -21,7 +21,7 @@ TextureImporter:
       213: 452926297546027425
     second: Attack1_5
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -157,11 +157,11 @@ TextureImporter:
       name: Attack1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 27
         y: 78
-        width: 200
-        height: 122
-      alignment: 0
+        width: 140
+        height: 70
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -178,10 +178,10 @@ TextureImporter:
       name: Attack1_1
       rect:
         serializedVersion: 2
-        x: 200
+        x: 227
         y: 78
-        width: 200
-        height: 122
+        width: 140
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,10 +199,10 @@ TextureImporter:
       name: Attack1_2
       rect:
         serializedVersion: 2
-        x: 400
+        x: 427
         y: 78
-        width: 200
-        height: 122
+        width: 140
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,10 +220,10 @@ TextureImporter:
       name: Attack1_3
       rect:
         serializedVersion: 2
-        x: 600
+        x: 627
         y: 78
-        width: 200
-        height: 122
+        width: 140
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,12 +241,12 @@ TextureImporter:
       name: Attack1_4
       rect:
         serializedVersion: 2
-        x: 800
+        x: 850
         y: 78
-        width: 200
-        height: 122
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 140
+        height: 70
+      alignment: 9
+      pivot: {x: 0.34, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,12 +262,12 @@ TextureImporter:
       name: Attack1_5
       rect:
         serializedVersion: 2
-        x: 1000
+        x: 1051
         y: 78
-        width: 200
-        height: 122
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 140
+        height: 70
+      alignment: 9
+      pivot: {x: 0.34, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -296,6 +296,7 @@ TextureImporter:
       Attack1_3: 4976274401295337057
       Attack1_4: -5639509438907974925
       Attack1_5: 452926297546027425
+      Attack1_6: 389272728
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

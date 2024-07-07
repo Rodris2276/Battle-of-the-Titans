@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Platforms
   - SpawnPoint
+  - Enemy
   layers:
   - Default
   - TransparentFX

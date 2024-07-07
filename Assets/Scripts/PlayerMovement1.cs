@@ -9,22 +9,15 @@ using UnityEngine.UI;
 public class PlayerMovement1 : MonoBehaviour
 {
 
-    public Animator animator;
-    
-    public RectTransform healthTransform;
-    private float cachedY;
-    private float minXValue;
-    private float maxXValue;
-    private int currentHealth;
-    public float speed;
-
-    private Rigidbody2D rb;
-    private BoxCollider2D coll;
     private SpriteRenderer sprite;
+    private BoxCollider2D coll;
+    private Rigidbody2D rb;
     private Animator anim;
+    public Animator animator;
 
     [SerializeField] private LayerMask jumpableGround;
     
+    public float speed;
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 8f;
@@ -32,25 +25,9 @@ public class PlayerMovement1 : MonoBehaviour
     private enum MovementState { idle, running, jumping, falling }
     private MovementState state = MovementState.idle;
 
-    public int maxHealth;
-    public Text healthText;
-    public Image visualHealth;
-    public float coolDown;
-    private bool onCD;
-
-    [SerializeField] public KeyCode left;
-    [SerializeField] public KeyCode right;
-    [SerializeField] public KeyCode jump;
-    [SerializeField] public KeyCode attack;
-
     // Start is called before the first frame update
     private void Start()
     {
-        cachedY = healthTransform.position.y;
-        maxXValue = healthTransform.position.x;
-        minXValue = healthTransform.position.x - healthTransform.rect.width;
-        currentHealth = maxHealth;
-        onCD = false;
 
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
@@ -63,15 +40,7 @@ public class PlayerMovement1 : MonoBehaviour
     private void Update()
     {
 
-        //HandleMovement();
-
-        if (healthTransform.GetComponent<CanvasRenderer>().cullTransparentMesh != true)
-        {
-        }
-        else
-        {
-            healthTransform.GetComponent<CanvasRenderer>().cullTransparentMesh = false;
-        }
+        HandleMovement();
 
         dirX = Input.GetAxisRaw("Horizontal1");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
@@ -84,12 +53,12 @@ public class PlayerMovement1 : MonoBehaviour
         UpdateAnimationState();
     }
 
-    /*private void HandleMovement()
+    private void HandleMovement()
     {
         float translation = speed * Time.deltaTime;
 
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal1")* translation ,0, Input.GetAxis("Vertical1") * translation));
-    }*/
+        transform.Translate(new Vector2(Input.GetAxis("Horizontal1")* translation , Input.GetAxis("Vertical1") * translation));
+    }
 
 
     private float Mapvalues(float x, float inMin, float inMax, float outMin, float outMax)
