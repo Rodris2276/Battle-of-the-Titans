@@ -9,15 +9,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public Animator animator;
-    
-    private Rigidbody2D rb;
+    public SpriteRenderer sprite;
     private BoxCollider2D coll;
-    private SpriteRenderer sprite;
-    private Animator anim;
+    private Rigidbody2D rb;
+    public Animator animator;
 
-    private float dirX = 0f;
     float speed = 0;
+    private float dirX = 0f;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private LayerMask jumpableGround;
@@ -31,8 +29,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,11 +37,8 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovement();
 
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
-        }
-
+        dirX = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
         if(Input.GetButtonDown("Jump") && IsGrounded())
         {
@@ -67,12 +61,12 @@ public class PlayerMovement : MonoBehaviour
         if(dirX > 0f)
         {
             state = MovementState.running;
-            sprite.flipX = false;
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
         else if (dirX < 0f)
         {
             state = MovementState.running;
-            sprite.flipX = true;
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
         else
         {
@@ -89,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.falling;
         }
 
-        anim.SetInteger("state", (int)state);
+        animator.SetInteger("state", (int)state);
     }
 
     private bool IsGrounded()

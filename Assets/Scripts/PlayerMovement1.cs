@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
-using Unity.Mathematics;
 using Unity.VisualScripting;
-using UnityEngine;
+using JetBrains.Annotations;
+using System.Collections;
+using Unity.Mathematics;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class PlayerMovement1 : MonoBehaviour
 {
@@ -12,15 +12,13 @@ public class PlayerMovement1 : MonoBehaviour
     private SpriteRenderer sprite;
     private BoxCollider2D coll;
     private Rigidbody2D rb;
-    private Animator anim;
     public Animator animator;
 
-    [SerializeField] private LayerMask jumpableGround;
-    
-    public float speed;
+    float speed = 0;
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 8f;
+    [SerializeField] private LayerMask jumpableGround;
 
     private enum MovementState { idle, running, jumping, falling }
     private MovementState state = MovementState.idle;
@@ -28,18 +26,15 @@ public class PlayerMovement1 : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-
         HandleMovement();
 
         dirX = Input.GetAxisRaw("Horizontal1");
@@ -60,24 +55,18 @@ public class PlayerMovement1 : MonoBehaviour
         transform.Translate(new Vector2(Input.GetAxis("Horizontal1")* translation , Input.GetAxis("Vertical1") * translation));
     }
 
-
-    private float Mapvalues(float x, float inMin, float inMax, float outMin, float outMax)
-    {
-        return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
-    }
-
     private void UpdateAnimationState()
     {
         MovementState state;
         if(dirX > 0f)
         {
             state = MovementState.running;
-            sprite.flipX = false;
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
         else if (dirX < 0f)
         {
             state = MovementState.running;
-            sprite.flipX = true;
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
         else
         {
@@ -94,7 +83,7 @@ public class PlayerMovement1 : MonoBehaviour
             state = MovementState.falling;
         }
 
-        anim.SetInteger("state", (int)state);
+        animator.SetInteger("state", (int)state);
     }
 
     private bool IsGrounded()

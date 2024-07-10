@@ -12,8 +12,10 @@ public class CharacterManager : MonoBehaviour
 
     public CharacterDatabase characterDB;
 
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] List<Sprite> Chars = new();
+    [SerializeField] GameObject CharSkin;
     public Text nameText;
-    public SpriteRenderer artworkSprite;
 
     private int selectedOption = 0;
 
@@ -30,38 +32,39 @@ public class CharacterManager : MonoBehaviour
             Load();
         }
 
-
-        UpdateCharacter(selectedOption); 
+        spriteRenderer.sprite = Chars[selectedOption]; 
     }
 
     public void NextOption()
     {
         selectedOption++;
-
         if(selectedOption >= characterDB.CharacterCount)
         {
             selectedOption = 0;
         }
+
         UpdateCharacter(selectedOption);
-        Save();
+        spriteRenderer.sprite = Chars[selectedOption];
+        PlayerPrefs.Save();
     }
 
     public void BackOption()
     {
         selectedOption--;
-
         if(selectedOption < 0)
         {
             selectedOption = characterDB.CharacterCount - 1;
         }
+
         UpdateCharacter(selectedOption);
-        Save();
+        spriteRenderer.sprite = Chars[selectedOption];
+        PlayerPrefs.Save();
     }
 
     private void UpdateCharacter(int selectedOption)
     {
         Character character = characterDB.GetCharacter(selectedOption);
-        artworkSprite.sprite = character.characterSprite;
+        GameObject CharSkin = character.CharSkin;
         nameText.text = character.characterName;
     }
 
@@ -79,5 +82,4 @@ public class CharacterManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneID);
     }
-
 }

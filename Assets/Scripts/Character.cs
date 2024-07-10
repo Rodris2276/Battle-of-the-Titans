@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 
@@ -7,5 +7,6 @@ using UnityEngine;
 public class Character  
 {
     public string characterName;
-    public Sprite characterSprite;
+    public GameObject CharSkin;
+    internal object character;
 }

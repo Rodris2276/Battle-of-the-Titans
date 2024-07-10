@@ -12,27 +12,24 @@ public class PlayerCombat1 : MonoBehaviour
     public Animator animator;
 
     public Transform attackPoint;
-    public float attackRange = 0.5f;
     public LayerMask enemyLayers;
-    public float coolDown;
-    private bool onCD;
+    [SerializeField] GameObject Player1;
 
     public HealthBar healthBar;
     public int maxHealth = 100;
     public int currentHealth;
 
-    public int attackDamage;
+    public float attackRange = 0.5f;
     public float attackRate = 2f;
+    public int attackDamage;
     float nextAttackTime = 0f;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        onCD = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Time.time >= nextAttackTime) 
@@ -44,13 +41,6 @@ public class PlayerCombat1 : MonoBehaviour
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
-    }
-
-    IEnumerator CoolDownDmg()
-    {
-        onCD = true;
-        yield return new WaitForSeconds(coolDown);
-        onCD = false; 
     }
 
     public void TakeDamage(int damage)
@@ -68,15 +58,17 @@ public class PlayerCombat1 : MonoBehaviour
     void Die()
     {
         animator.SetBool("IsDead", true);
+        GetComponent<PlayerCombat1>().enabled = false;
+        GetComponent<PlayerMovement1>().enabled = false;
     }
 
     void Attack()
     {
         animator.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        foreach(Collider2D player1 in hitEnemies)
+        foreach(Collider2D Player1 in hitEnemies)
         {
-            player1.GetComponent<PlayerCombat>().TakeDamage(attackDamage);
+            Player1.GetComponent<PlayerCombat>().TakeDamage(attackDamage);
         }
     }
 
