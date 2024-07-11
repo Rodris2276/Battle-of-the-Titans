@@ -9,8 +9,9 @@ using System;
 
 public class PlayerCombat1 : MonoBehaviour
 {
+    private Animator anim;
+    public GameManagerScript gameManager;
     public Animator animator;
-
     public Transform attackPoint;
     public LayerMask enemyLayers;
     [SerializeField] GameObject Player1;
@@ -18,6 +19,8 @@ public class PlayerCombat1 : MonoBehaviour
     public HealthBar healthBar;
     public int maxHealth = 100;
     public int currentHealth;
+
+    private bool isDead;
 
     public float attackRange = 0.5f;
     public float attackRate = 2f;
@@ -47,14 +50,24 @@ public class PlayerCombat1 : MonoBehaviour
     {
         currentHealth -= damage;
         animator.SetTrigger("Hurt");
-        if(currentHealth <= 0)
+        if(currentHealth <= 0 && !isDead)
         {
+            isDead=true;
+            gameManager.WinGame();
             Die();
         }
         healthBar.SetHealth(currentHealth);
     }
-    
 
+    public void DealDamage(GameObject Player1)
+    {
+        var atm = Player1.GetComponent<PlayerCombat>();
+        if(atm != null)
+        {
+            atm.TakeDamage(attackDamage);
+        }
+    }
+    
     void Die()
     {
         animator.SetBool("IsDead", true);
@@ -62,7 +75,7 @@ public class PlayerCombat1 : MonoBehaviour
         GetComponent<PlayerMovement1>().enabled = false;
     }
 
-    void Attack()
+    public void Attack()
     {
         animator.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);

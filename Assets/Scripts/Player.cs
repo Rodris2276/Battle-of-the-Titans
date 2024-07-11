@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private void UpdateCharacter(int selectedOption)
     {
         Character character = characterDB.GetCharacter(selectedOption);
-        GameObject CharSkin = character.CharSkin;
+        GameObject CharSkin = character.Char;
     }
 
     private void Load()

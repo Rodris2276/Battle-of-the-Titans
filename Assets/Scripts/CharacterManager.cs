@@ -14,7 +14,7 @@ public class CharacterManager : MonoBehaviour
 
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] List<Sprite> Chars = new();
-    [SerializeField] GameObject CharSkin;
+    [SerializeField] GameObject Char;
     public Text nameText;
 
     private int selectedOption = 0;
@@ -64,18 +64,13 @@ public class CharacterManager : MonoBehaviour
     private void UpdateCharacter(int selectedOption)
     {
         Character character = characterDB.GetCharacter(selectedOption);
-        GameObject CharSkin = character.CharSkin;
+        _ = character.Char;
         nameText.text = character.characterName;
     }
 
     private void Load()
     {
         selectedOption = PlayerPrefs.GetInt("selectedOption");
-    }
-
-    private void Save()
-    {
-        PlayerPrefs.SetInt("selectedOption", selectedOption);
     }
 
     public void ChangeScene(int sceneID)

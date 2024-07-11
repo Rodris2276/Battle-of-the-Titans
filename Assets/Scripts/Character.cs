@@ -7,6 +7,6 @@ using UnityEngine;
 public class Character  
 {
     public string characterName;
-    public GameObject CharSkin;
+    public GameObject Char;
     internal object character;
 }
